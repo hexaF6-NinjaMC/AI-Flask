@@ -7,10 +7,11 @@ from app.routes import app_bp
 from app.error_handling import error_bp
 
 app = Flask(__name__)
-CORS(app, supports_credentials=True)
+CORS(app)
 load_dotenv()
 
 # Set secret key:
+app.config["CORS_HEADERS"] = "Content-Type: application/json"
 app.config['SECRET_KEY'] = os.environ.get('DOPPLER_PROJECT')
 app.config['SESSION_COOKIE_NAME'] = "shared_cookie"
 app.config['SESSION_COOKIE_DOMAIN'] = ".localhost"

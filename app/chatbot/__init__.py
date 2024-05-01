@@ -10,13 +10,20 @@ def chatbot_index():
     """Returns the initial chatbot resonse"""
     return jsonify({
         "status": 200,
-        "message": "Welcome to the AI-Flask Chatbot!"
+        "answer": "Welcome to the AI-Flask Chatbot!"
     })
 
 @chatbot_bp.post('/predict')
 def predict():
     """After JSON \"message\" is sent, returns the chatbot response."""
-    text = request.get_json().get("message") # error check text is valid
+    text = request.get_json()
+    if not text.get("message"):
+        return jsonify({
+            "status": 422,
+            # pylint: disable-next=line-too-long
+            "answer": "The request object does not follow the expected format.\nJSON data must have \"message\" as key."
+        }), 422
+    text = text.get("message")
     response = chat.get_response(text)
     return jsonify({
         "status": 200,

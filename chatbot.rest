@@ -1,4 +1,4 @@
-### GET chatbot root message
+### Return 200: OK response from GET request at root
 GET http://localhost:5000/chatbot HTTP/1.1
 
 ### GET chatbot prediction message from POST request
@@ -6,7 +6,7 @@ POST http://localhost:5000/chatbot/predict HTTP/1.1
 content-type: application/json
 
 {
-  "message": "I wish to laugh."
+  "message": "joke."
 }
 
 ### GET guidance to use the system from POST request
@@ -32,3 +32,22 @@ content-type: application/json
 {
   "message": "How do I live life to the fullest?"
 }
+
+### GET 422: Unprocessable Entity response from POST request
+POST http://localhost:5000/chatbot/predict HTTP/1.1
+content-type: application/json
+
+{
+  "request": "I don't know how to use this system. Can you help me?"
+}
+
+### GET 404: Not Found response from POST request
+GET http://localhost:5000/chatbot/ask HTTP/1.1
+content-type: application/json
+
+{
+  "request": "I don't know how to use this system. Can you help me?"
+}
+
+### Return 405: Method Not Allowed from a DELETE request
+DELETE http://localhost:5000/chatbot/ HTTP/1.1

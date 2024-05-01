@@ -10,7 +10,8 @@ error_bp = Blueprint('error_bp', __name__, root_path='/')
 
 # 500 - Internal Server Error
 @error_bp.app_errorhandler(500)
-def server_error():
+# pylint: disable-next=unused-argument
+def server_error(e):
     """
     Used when a server error occurs during execution
     """
@@ -22,31 +23,22 @@ def server_error():
 # =================================================================
 # 400-LEVEL ERROR HANDLERS
 
-# 401 - Unauthenticated Access
-@error_bp.app_errorhandler(401)
-def unauthenticated_access():
-    """
-    Used when denied access: lacks credentials
-    """
-    return jsonify({
-        "status": 401,
-        "message": "You are not authorized to perform this action."
-    }), 401
-
-# 403 - Permission Request Denied
-@error_bp.app_errorhandler(403)
-def access_denied():
+# 405 - Permission Request Denied
+@error_bp.app_errorhandler(405)
+# pylint: disable-next=unused-argument
+def method_not_allowed(e):
     """
     Used when denied access: lacks permissions
     """
     return jsonify({
-        "status": 403,
-        "message": "You are not authorized to perform this action."
-    }), 403
+        "status": 405,
+        "message": "This method is not applicable to the functionality of the application."
+    }), 405
 
 # 404 - Invalid URL
 @error_bp.app_errorhandler(404)
-def page_not_found():
+# pylint: disable-next=unused-argument
+def page_not_found(e):
     """
     Used when the requested URL and/or content was not found on the server
     """
@@ -57,7 +49,8 @@ def page_not_found():
 
 # 422 - Unprocessable Entity
 @error_bp.app_errorhandler(422)
-def unprocessable_entity():
+# pylint: disable-next=unused-argument
+def unprocessable_entity(e):
     """
     Used when request object doesn't follow the expected format
     """

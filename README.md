@@ -6,13 +6,17 @@
 
 ### Data requests:
 __How are the responses made available?__
-+ The data is returned through a Flask RestAPI in JSON format.
++ The data from a successful request that the chatbot can formulate an answer with is returned through a Flask RestAPI in JSON format.
   + Its appearance is as follows:
 
-  <pre json>
+  ```json
   {
-    "answer": ${\color{orange}<i>str</i>}$,
-    "status": ${\color{orange}<i>int</i>}$
+    "answer": "This is the answer. Show it to the user!",
+    "status": 200
   }
-  </pre>
+  ```
 + To use the API in your application, you will need to utilize a Fetch() request through Javascript.
+
+__How are errors handled?__
+
+If the URL is something the application doesn't access, the response will be something similar to a `404: Not Found` or other client-level conditional error. Other 400-level errors include `422: Unprocessable Entity`, `403: Permission denied.`, and `401: Unauthorized`. The only server-level error response to be expected is `500: Internal Server Error`.
