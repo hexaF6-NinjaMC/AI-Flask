@@ -16,7 +16,8 @@ __How are the responses made available?__
   }
   ```
 + To use the API in your application, you will need to utilize a Fetch() request through Javascript.
+  ~~ + Use the URL <> in your Javascript. ~~
 
 __How are errors handled?__
 
-If the URL is something the application doesn't access, the response will be something similar to a `404: Not Found` or other client-level conditional error. Other 400-level errors include `422: Unprocessable Entity`, `403: Permission denied.`, and `401: Unauthorized`. The only server-level error response to be expected is `500: Internal Server Error`.
+If the URL is something the application doesn't access, the response will be something similar to a `404: Not Found` or other client-level conditional error. Other 400-level errors include `422: Unprocessable Entity` and `405: Method Not Allowed.`. The only server-level error response to be expected is `500: Internal Server Error`.
