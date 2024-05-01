@@ -1,4 +1,7 @@
+# Ignore these pesky Python directories
 __pycache__/
-.env
 .venv/
 instance/
+
+# Ignore Environment vars
+.env
