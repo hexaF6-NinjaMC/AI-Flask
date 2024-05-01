@@ -1,0 +1,12 @@
+<table>
+    <tbody>
+    {% if current_user.is_authenticated and current_user.id == 1 %}
+        <tr><td>{{ current_user.id }}. {{ current_user.name }}</td></tr>
+        {% for user in users %}
+            {% if user.id != 1 %}
+        <tr><td>{{ user.id }}. {{ user.email }} | <a href="{{ url_for( 'app_bp.delete', id=user.id ) }}">Delete</a></td></tr>
+            {% endif %}
+        {% endfor %}
+    {% endif %}
+    </tbody>
+</table>

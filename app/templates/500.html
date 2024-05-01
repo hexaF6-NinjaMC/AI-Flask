@@ -1,0 +1,10 @@
+{% extends "base.html" %}
+{% block title %}500 | blog.fsixninja.dev{% endblock %}
+{% block metacontent %}This is an error page.{% endblock %}
+
+{% block h1 %}<h1>500 - An Error Most Unpleasant, It Is...</h1>{% endblock %}
+{% block main %}
+    {% include 'flash-messages.html' %}
+
+    <p>There was an error handling your request. Please try again.</p>
+{% endblock %}

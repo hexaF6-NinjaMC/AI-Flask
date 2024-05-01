@@ -1,0 +1,40 @@
+@media screen and (min-width: 992px) {
+    :root {
+        font-size: 18px;
+    }
+
+    .responsive {
+        display: flex;
+    }
+
+    .responsive>li {
+        padding: .2rem;
+    }
+
+    .code-editor {
+        grid-template-rows: 1fr;
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header, footer, body {
+        width: 100%;
+    }
+
+    nav>button {
+        display: none;
+    }
+    
+    nav>ul {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+
+    nav li a {
+        display: flex;
+        width: fit-content;
+        height: 100%;
+        padding: 0 0.5rem 0;
+        justify-content: center;
+        align-items:center;
+    }
+}

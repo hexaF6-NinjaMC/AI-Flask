@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% block title %}Live Code Editor{% endblock %}
+
+{% block h1 %}
+    {% if request.headers.get('X-Users').exists %}
+        <h1>Write your code in their appropriate boxes.</h1>
+    {% else %}
+        <h1 class="blinky">Looks like you don't have access to this yet.</h1>
+    {% endif %}
+{% endblock %}
+
+    {% block main %}
+        <div id="background">
+            <div class="circle" id="first"></div>
+            <div class="circle" id="second"></div>
+            <div class="circle" id="third"></div>
+            <div class="circle" id="fourth"></div>
+            <div class="circle" id="fifth"></div>
+            <div class="circle" id="sixth"></div>
+            <div class="circle" id="seventh"></div>
+            <div class="circle" id="eighth"></div>
+            <div class="circle" id="ninth"></div>
+            <div class="circle" id="tenth"></div>
+        </div>
+        {% if session['logged_in'] == true and current_user.permitted == true %}
+            <div class="code-editor">
+                <div class="code">
+                    <div class="html-code">
+                        <label for="html"><img src="{{ url_for('static', filename='images/html.svg') }}" alt="HTML5 logo">HTML</label>
+                        <textarea id="html"></textarea>
+                    </div>
+                    <div class="css-code">
+                        <label for="css"><img src="{{ url_for('static', filename='images/css.svg') }}" alt="CSS3 logo">CSS</label>
+                        <textarea id="css"></textarea>
+                    </div>
+                    <div class="js-code">
+                        <label for="js"><img src="{{ url_for('static', filename='images/js.svg') }}" alt="JavaScript logo">JS</label>
+                        <textarea id="js"></textarea>
+                    </div>
+                </div>
+
+                <iframe id="result"></iframe>
+            </div>
+            <script src="{{ url_for('static', filename='script.js') }}"></script>
+        {% else %}
+            {% if session['logged_in'] == true and current_user.permitted == false %}
+                <p style="text-align: center; margin-top: 25vh;"><a href="mailto:aaron.bechtel@fsixninja.dev">Email me</a> if you wish to view the code editor. We can discuss what is expected with your use of this site.</p>
+            {% else %}
+                <p style="text-align: center; margin-top: 25vh;"><a href="{{ url_for('app_bp.login')}}">Login</a> to view the code editor.</p>
+            {% endif %}
+        {% endif %}
+        <p>{{ request.headers['X-Users'] }}</p>
+    {% endblock %}

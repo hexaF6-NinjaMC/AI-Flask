@@ -1,0 +1,13 @@
+{% extends "base.html" %}
+{% block title %}403 - Access Denied!{% endblock %}
+{% block metacontent %}This is an error page.{% endblock %}
+
+{% block h1 %}<h1>403 - Access Denied</h1>{% endblock %}
+{% block main %}
+    {% include 'flash-messages.html' %}
+
+    <p>403 - You don't have permission to perform that action!</p>
+    <p>If you believe this was a mistake, please contact <a href="mailto:aaron.bechtel@fsixninja.dev">the Adminstrator</a>.</p>
+
+    {% include 'display-users.html' %}
+{% endblock %}

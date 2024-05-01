@@ -1,0 +1,40 @@
+{# import the macro at the top of the template #}
+{% from "forms.html" import form_field %}
+{% extends "base.html" %}
+
+{% block title %}Update User Information{% endblock %}
+{% block metacontent %}Update your information here.{% endblock %}
+
+{% block h1 %}<h1>Update User Information</h1>{% endblock %}
+{% block main %}
+    {% include "flash-messages.html" %}
+    <noscript>
+        <p class="alert error">Please enable Javascript to view the Update Account forms on this page, then refresh the page.</p>
+    </noscript>
+    <form method="POST" id="account-info-form">
+        <h2>Basic Account Info</h2>
+        {% for field in form_user %}
+            {{ form_field(field) }}
+        {% endfor %}
+        <input name="action" value="info-change" type="hidden">
+    </form>
+
+    <br>
+    <hr>
+    <br>
+
+    <form method="POST" id="password-change-form">
+        <div>
+            <p class="required-red">* : Required</p>
+            <h2>Change Password</h2>
+        </div>
+        
+        {% for field in form_pass %}
+            {{ form_field(field) }}
+        {% endfor %}
+        <input name="action" value="pass-change" type="hidden">
+    </form>
+
+{% endblock %}
+
+{% set scriptAdditions = ['js/showPass.js'] %}
