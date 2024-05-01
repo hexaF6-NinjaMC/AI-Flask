@@ -1,0 +1,34 @@
+### GET chatbot root message
+GET http://localhost:5000/chatbot HTTP/1.1
+
+### GET chatbot prediction message from POST request
+POST http://localhost:5000/chatbot/predict HTTP/1.1
+content-type: application/json
+
+{
+  "message": "I wish to laugh."
+}
+
+### GET guidance to use the system from POST request
+POST http://localhost:5000/chatbot/predict HTTP/1.1
+content-type: application/json
+
+{
+  "message": "I don't know how to use this system. Can you help me?"
+}
+
+### GET "the weather" from POST request
+POST http://localhost:5000/chatbot/predict HTTP/1.1
+content-type: application/json
+
+{
+  "message": "What's the weather like here?"
+}
+
+### GET life questions answered ambigiously from POST request
+POST http://localhost:5000/chatbot/predict HTTP/1.1
+content-type: application/json
+
+{
+  "message": "How do I live life to the fullest?"
+}
