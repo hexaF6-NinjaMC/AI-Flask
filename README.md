@@ -16,7 +16,7 @@ __How are the responses made available?__
   }
   ```
 + To use the API in your application, you will need to utilize a Fetch() request through Javascript.
-  ~~ + Use the URL <> in your Javascript. ~~
+  + ~~Use the URL <> in your Javascript.~~
 
 __How are errors handled?__
 
