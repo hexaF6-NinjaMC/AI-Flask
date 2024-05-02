@@ -3,8 +3,8 @@ import os
 from flask import Flask
 from dotenv import load_dotenv
 from flask_cors import CORS
-from app.routes import app_bp
-from app.error_handling import error_bp
+from service.routes import app_bp
+from service.error_handling import error_bp
 
 app = Flask(__name__)
 CORS(app)
