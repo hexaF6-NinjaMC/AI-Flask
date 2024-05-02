@@ -12,11 +12,7 @@ load_dotenv()
 
 # Set secret key:
 app.config["CORS_HEADERS"] = "Content-Type: application/json"
-app.config['SECRET_KEY'] = os.environ.get('DOPPLER_PROJECT')
-app.config['SESSION_COOKIE_NAME'] = "shared_cookie"
-app.config['SESSION_COOKIE_DOMAIN'] = ".localhost"
-app.config['REMEMBER_COOKIE_DOMAIN'] = ".localhost"
-app.config['REMEMBER_COOKIE_SECURE'] = None
+app.config['SECRET_KEY'] = os.getenv('DOPPLER_PROJECT')
 app.register_blueprint(error_bp)
 app.register_blueprint(app_bp)
 
