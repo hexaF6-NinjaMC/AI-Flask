@@ -89,6 +89,8 @@
     {
       "tag": "funny",
       "patterns": [
+        "Joke",
+        "Give me jokes!",
         "Tell me a joke!",
         "Tell me something funny!",
         "Do you know a joke?",

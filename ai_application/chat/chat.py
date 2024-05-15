@@ -10,7 +10,7 @@ device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 with open("ai_application/intents.json", mode='r', encoding='utf-8') as json_data:
     intents = json.load(json_data)
 
-FILE = "ai_application/data.pth"
+FILE = "data.pth"
 data = torch.load(FILE)
 
 input_size = data["input_size"]
