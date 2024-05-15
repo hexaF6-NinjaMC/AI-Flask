@@ -46,8 +46,9 @@ def get_response(msg):
         for intent in intents['intents']:
             if tag == intent["tag"]:
                 return random.choice(intent['responses'])
-    return "I do not understand..."
+    return "I do not understand... Can you rephrase that? I may be better capable to serve you."
 
+# Use this code to run the chatbot from the command line (dev)
 if __name__ == "__main__":
     print("Let's chat! (type 'quit' to exit)")
     while True:
