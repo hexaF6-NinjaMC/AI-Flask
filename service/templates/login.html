@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% set title = "Login" %}
+{% block body %}
+  <form action="/login" method="post">
+    <div class="col mb-3">
+      <div class="mb-3 align-items-center justify-content-center">
+        <div class="messages">
+          {% for category, message in get_flashed_messages(with_categories=True) %}
+          <div class="alert alert-warning alert-dismissible fade show" role="alert">
+            {{ message }}
+            <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close">
+            </button>
+          </div>
+          {% endfor %}
+        </div>
+        {% for field in form %}
+        {% if field.type != "SubmitField" and field.type != "CSRFTokenField" %}
+        <div class="row mb-2 justify-content-center was-validated">
+          {{ field.label(class="col-sm-2 col-form-label") }}
+          <div class="col-sm-7 justify-content-center">
+            {{ field(class="form-control mb-2 has-validation") }}
+            <div class="invalid-feedback">
+              {{ field.description }}
+            </div>
+          </div>
+        </div>
+        {% else %}
+        <div class="row justify-content-center">
+          {{ field(class="btn btn-primary col-sm-2") }}
+        </div>
+        {% endif %}
+        {% endfor %}
+      </div>
+    </div>
+  </form>
+{% endblock %}

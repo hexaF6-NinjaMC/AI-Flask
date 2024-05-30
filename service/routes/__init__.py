@@ -1,10 +1,14 @@
 """Register all route Blueprints in this catch-all Blueprint for the whole application."""
 from flask import Blueprint, abort, jsonify
 from service.chatbot import chatbot_bp
+from service.auth import auth_bp
+from service.upload_training_data import upload_bp
 
 # Flask Blueprint
 app_bp = Blueprint("app_bp", __name__, root_path="/")
 app_bp.register_blueprint(chatbot_bp, url_prefix="/chatbot")
+app_bp.register_blueprint(auth_bp)
+app_bp.register_blueprint(upload_bp)
 
 # ==============---------------RESPONSES---------------==============
 
