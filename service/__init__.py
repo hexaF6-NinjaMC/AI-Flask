@@ -3,7 +3,6 @@ import os
 from dotenv import load_dotenv
 from flask import Flask
 from flask_cors import CORS
-# from flask_jwt_extended import create_access_token, get_jwt, get_jwt_identity, set_access_cookies
 from service.models import User
 from service.routes import app_bp
 from service.error_handling import error_bp
