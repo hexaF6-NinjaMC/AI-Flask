@@ -21,20 +21,22 @@ def register_post():
     if current_user.is_authenticated:
         logout_user()
     form = RegisterForm()
-    response = redirect("/register", 422)
+    # response = redirect("/register", 422)
     if form.validate_on_submit():
         email_data = form.username.data.lower()
         password_data = form.password.data
-        user = User.get_user_by_name(name=email_data)
-        if user is not None:
-            if user.username.lower() == email_data:
-                flash('User already exists.', 'info')
-                response = redirect("/login", 302)
-        else:
-            user = User()
-            user.create(user_name=email_data, password_text=password_data)
-            flash('User created.', 'success')
-            response = redirect("/login", 201)
+        user = User()
+        user_reg = user.get_user_by_name(name=email_data)
+        if user_reg is not None and user_reg.username.lower() == email_data:
+            flash('User already exists.', 'info')
+            response = redirect("/login"), 302
+            return response
+        user.create(user_name=email_data, password_text=password_data)
+        flash('User created.', 'success')
+        response = redirect("/login")
+        return response
+    flash('Invalid email or password.', 'error')
+    response = redirect("/register"), 401
     return response
 
 @auth_bp.get('/login')
@@ -49,7 +51,7 @@ def login() -> Response:
     """Login the user"""
     if current_user.is_authenticated:
         logout_user()
-    response = redirect("/login", 401)
+    # response = redirect("/login", 401)
     form = LoginForm()
     if form.validate_on_submit():
         email_data = form.username.data.lower()
@@ -58,15 +60,17 @@ def login() -> Response:
         form.username.data = ''
         form.password.data = ''
         user = User.get_user_by_email(email=email_data)
-        database.session.close()
-        if user and user.verify_password(password_text=password_data) and user.id == current_app.config['ADMIN_USER_ID']:
+        # print(type(current_app.config['ADMIN_USER_ID']))
+        if user and user.verify_password(password_text=password_data) and user.id == int(current_app.config['ADMIN_USER_ID']):
             login_user(user)
             flash('Logged in.', 'success')
-            response = redirect("/upload", 302)
-            # response.access_control_allow_credentials = True
-    else:
+            response = redirect("/upload"), 302
+            return response
         flash('Invalid email or password.', 'error')
-        response = redirect("/login", 401)
+        response = redirect("/login"), 401
+        return response
+    flash('Invalid email or password.', 'error')
+    response = redirect("/login"), 401
     return response
 
 # Create Logout page

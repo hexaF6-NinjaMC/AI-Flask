@@ -30,9 +30,13 @@ class User(database.Model, UserMixin):
     @classmethod
     def get_user_by_name(cls, name):
         """Retrieves a User by name"""
-        return database.one_or_404(database.select(cls).filter_by(username=name))
+        user = database.session.query(cls).filter_by(username=name).first()
+        database.session.close()
+        return user
 
     @classmethod
     def get_user_by_email(cls, email):
         """Retrieves a User by email"""
-        return database.one_or_404(database.select(cls).filter_by(username=email))
+        user = database.session.query(cls).filter_by(username=email).first()
+        database.session.close()
+        return user
