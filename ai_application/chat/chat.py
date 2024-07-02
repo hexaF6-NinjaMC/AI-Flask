@@ -1,6 +1,5 @@
 """Sets up Chatbot chat functionality"""
 import json
-from pathlib import Path
 import random
 import torch
 from ai_application.model.model import NeuralNet
@@ -21,7 +20,7 @@ def get_response(msg: str) -> str:
     device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
     # Load the saved intents even after POST upload
-    intents_file = Path("ai_application/intents.json")
+    intents_file = "ai_application/intents.json"
 
     with open(intents_file, mode='r', encoding='utf-8') as json_data:
         intents = json.load(json_data)
