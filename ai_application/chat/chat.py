@@ -1,5 +1,6 @@
 """Sets up Chatbot chat functionality"""
 import json
+import pathlib
 import random
 import torch
 from ai_application.model.model import NeuralNet
@@ -25,7 +26,11 @@ def get_response(msg: str) -> str:
     with open(intents_file, mode='r', encoding='utf-8') as json_data:
         intents = json.load(json_data)
 
-    file = "ai_application/data.pth"
+    file = "data.pth"
+    # Check if data.pth already exists
+    if not pathlib.Path(file).is_file():
+        print("No data.pth found. Training model...")
+        return "\"data.pth\" does not exist."
     data = torch.load(file)
 
     input_size = data["input_size"]

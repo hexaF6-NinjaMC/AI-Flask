@@ -127,10 +127,10 @@ def train_chatbot():
             "tags": tags
         }
 
-        FILE = "ai_application/data.pth"
+        FILE = "data.pth"
         torch.save(data, FILE)
 
-        print(f"Training complete. File saved to \"{FILE}\".")
+        print(f"Training complete. Model training data saved to \"{FILE}\".")
     else:
         print("intents.json file not found.")
 
