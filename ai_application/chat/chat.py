@@ -1,34 +1,46 @@
 """Sets up Chatbot chat functionality"""
 import json
+from pathlib import Path
 import random
 import torch
 from ai_application.model.model import NeuralNet
 from ai_application.nltk_utils.nltk_utils import bag_of_words, tokenize
 
-device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+# pylint: disable-next=too-many-locals
+def get_response(msg: str) -> str:
+    """
+    Initializes application setup, and also re-initializes intents file with
+    the new intents received from the POST upload. Then, it uses the loaded model
+    to generate a response based on the given message.
 
-with open("ai_application/intents.json", mode='r', encoding='utf-8') as json_data:
-    intents = json.load(json_data)
+    :param str msg: the user's input message
+    :return: a response based on the given message `msg`
+    :rtype: str.
+    """
 
-FILE = "data.pth"
-data = torch.load(FILE)
+    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
 
-input_size = data["input_size"]
-hidden_size = data["hidden_size"]
-output_size = data["output_size"]
-all_words = data['all_words']
-tags = data['tags']
-model_state = data["model_state"]
+    # Load the saved intents even after POST upload
+    intents_file = Path("ai_application/intents.json")
 
-# pylint: disable-next=invalid-name
-model = NeuralNet(input_size, hidden_size, output_size).to(device)
-model.load_state_dict(model_state)
-model.eval()
+    with open(intents_file, mode='r', encoding='utf-8') as json_data:
+        intents = json.load(json_data)
 
-BOT_NAME = "Algee"
+    file = "ai_application/data.pth"
+    data = torch.load(file)
 
-def get_response(msg):
-    """Returns a response based on the given message `msg`."""
+    input_size = data["input_size"]
+    hidden_size = data["hidden_size"]
+    output_size = data["output_size"]
+    all_words = data['all_words']
+    tags = data['tags']
+    model_state = data["model_state"]
+
+    # pylint: disable-next=invalid-name
+    model = NeuralNet(input_size, hidden_size, output_size).to(device)
+    model.load_state_dict(model_state)
+    model.eval()
+
     sentence = tokenize(msg)
     x = bag_of_words(sentence, all_words)
     x = x.reshape(1, x.shape[0])

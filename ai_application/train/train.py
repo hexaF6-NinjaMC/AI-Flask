@@ -127,7 +127,7 @@ def train_chatbot():
             "tags": tags
         }
 
-        FILE = "data.pth"
+        FILE = "ai_application/data.pth"
         torch.save(data, FILE)
 
         print(f"Training complete. File saved to \"{FILE}\".")

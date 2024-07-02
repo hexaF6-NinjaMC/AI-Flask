@@ -5,3 +5,6 @@ instance/
 
 # Ignore Environment vars
 .env
+
+# Ignore machine-learning data structures
+data.pth

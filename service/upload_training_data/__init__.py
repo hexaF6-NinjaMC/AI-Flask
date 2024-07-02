@@ -1,11 +1,15 @@
 """Add File Upload routes"""
 #pylint: disable=line-too-long
 import os
-from flask import Blueprint, current_app, flash, make_response, redirect, render_template, request
+from socket import gethostbyname, gethostname
+
+from flask import (Blueprint, current_app, flash, make_response, redirect,
+                   render_template, request)
 from flask_login import login_required
 from werkzeug.utils import secure_filename
-from service.forms import FileUploadForm
+
 from ai_application.train.train import train_chatbot
+from service.forms import FileUploadForm
 
 upload_bp = Blueprint('upload_bp', __name__)
 
@@ -30,8 +34,11 @@ def upload_file_post():
             return redirect("/upload")
         secure_file = secure_filename(file.filename)
         print(f"Uploading file...\n    > {os.path.join(current_app.config['UPLOAD_FOLDER'], secure_file)}")
-        file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], secure_file))
-        print(f"Saved file:\n    > {os.path.join(current_app.config['UPLOAD_FOLDER'], secure_file)}")
         flash('File successfully uploaded.')
-        train_chatbot()
+        if secure_file == "intents.json" and secure_file.endswith(".json"):
+            file.save(os.path.join(current_app.config['UPLOAD_FOLDER'], secure_file))
+            print(f"Saved file:\n    > {os.path.join(current_app.config['UPLOAD_FOLDER'], secure_file)}")
+            train_chatbot()
+        else:
+            print(f"User at {gethostbyname(gethostname())} attempted to upload file \"{secure_file}\" into \"{os.path.join(current_app.config['UPLOAD_FOLDER'])}\", but this is NOT allowed!")
     return redirect("/upload")

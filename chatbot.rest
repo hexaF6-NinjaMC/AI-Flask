@@ -59,3 +59,13 @@ content-type: application/json
 
 ### Return 405: Method Not Allowed from a DELETE request
 DELETE http://localhost:5000/chatbot/ HTTP/1.1
+
+### Render URL ###
+
+### GET response from POST request
+POST https://ai-flask-m190.onrender.com/chatbot/predict HTTP/1.1
+content-type: application/json
+
+{
+  "message": "I don't know how to use this system. Can you help me?"
+}
