@@ -3,16 +3,15 @@
     {
       "tag": "greeting",
       "patterns": [
-        "Hi",
-        "Hey",
-        "How are you?",
+        "Hi!",
+        "Hey.",
         "Is anyone there?",
-        "Hello",
-        "Good day"
+        "Hello!",
+        "Good day!"
       ],
       "responses": [
-        "Hey! o/",
-        "Hello! Thanks for visiting.",
+        "Hey! o/ What can I help you with?",
+        "Hello, and thanks for visiting me! How may I be of assistance?",
         "Hi! What can I do for you?",
         "Hi, there! How can I help?"
       ]
@@ -36,7 +35,7 @@
         "Thanks!",
         "Thank you!",
         "That's helpful!",
-        "Thank's a lot!",
+        "Thanks a lot!",
         "I appreciate your help!"
       ],
       "responses": [
@@ -46,44 +45,111 @@
       ]
     },
     {
-      "tag": "items",
+      "tag": "videos",
       "patterns": [
-        "Which items do you have?",
-        "What kinds of items are there?",
-        "What do you sell?",
-        "What can I buy?"
+        "What videos can I watch?",
+        "Do you have videos?",
+        "What topics do you cover?",
+        "What are the videos?",
+        "What videos do you share?",
+        "What are your videos?"
       ],
       "responses": [
-        "Take a look at our inventory <a href='/videos'>on our inventory page</a>.",
-        "We have coffee and tea, among other things."
+        "Take a look at the list of videos on our <a href='/videos'>Videos</a> page. You can watch the Developing Creator's progression in learning how to create Angular SPAs, and even content he streams on his gaming channel, directly on this website!",
+        "We have videos on Angular SPA creation demonstrations and Minecraft gameplay content. Check out the Videos link towards the top of the webpage!"
       ]
     },
     {
-      "tag": "payments",
+      "tag": "about",
       "patterns": [
-        "I'd like to pay with ",
-        "Do you take credit cards?",
-        "Do you accept ",
-        "Can I pay with Paypal?",
-        "Are you cash only?",
-        "What can I pay with?",
-        "How do I pay?"
+        "Who made this website?",
+        "Who created this content?",
+        "Who is behind this website?",
+        "Who is this website for?",
+        "Who is Aaron Bechtel?",
+        "Who is The White Ninja MC?",
+        "Why was this made?"
       ],
       "responses": [
-        "We accept VISA, Mastercard, Discover, American Express, Google Pay, Apple Pay, and Paypal, but we cannot accept cash, check, or bank e-payments.",
-        "We accept most major credit cards and payment methods; however, we cannot accept cash, check, or electronic bank payments."
+        "This website was created by <a href='/about'>The White Ninja MC</a> (a.k.a., Aaron Bechtel). He is a passionate developer who believes in creating innovative, engaging, and user-friendly content for his clients and viewers. He strives to create accessible website content that showcases his talents as a Minecraft content-creator on YouTube and a professional developer in Web Design and Development."
       ]
     },
     {
-      "tag": "delivery",
+      "tag": "contact",
       "patterns": [
-        "How long does delivery take?",
-        "How long does shipping take?",
-        "When do I get my delivery?"
+        "How can I contact you?",
+        "Where can I reach you?",
+        "Do you have a contact form?",
+        "I want to reach out to you.",
+        "How do I keep in touch with you?",
+        "I want to contact you.",
+        "I need to contact the administrator.",
+        "Is there a way to contact you?",
+        "How do I contact you?"
       ],
       "responses": [
-        "Delivery takes 2-4 days.",
-        "Shipping takes 2-4 days."
+        "You can reach out to us on the <a href='/contact'>Contact page</a> for any issues, or on social media platforms like Twitter (@aaron_bechtel) and YouTube (@thewhiteninjamc) if that doesn't work for you. We're always looking for new ways to engage with our audience and create new content!<br><br>Thank you for your interest in our website!"
+      ]
+    },
+    {
+      "tag": "privacy",
+      "patterns": [
+        "What information do you collect?",
+        "What data do you store?",
+        "How do you use my data?",
+        "I want to understand your privacy policy."
+      ],
+      "responses": [
+        "We collect user information such as your name, email address, and any other personal information you provide to us. This information is used to provide you with the best possible experience on our website, to respond to your inquiries, and to improve our services. We do not sell or share this information with third parties.<br><br>For more information on our privacy policy, please visit our <a href='/privacy'>Privacy Policy</a> page."
+      ]
+    },
+    {
+      "tag": "donate",
+      "patterns": [
+        "Can I donate to you?",
+        "I want to support you.",
+        "I want to help out.",
+        "I want to make a donation."
+      ],
+      "responses": [
+        "We're glad you're considering donating to the developers of this website! We're a small, dedicated team of developers who are dedicated to creating high-quality, engaging content for our audience. As a result, we don't currently have the resources to accept your donations personally. However, we encourage you to share your support on social media platforms, where others can see your expereince and help us reach out to a greater audience. We're always looking for new ways to engage with our audience and create new content!<br><br>Again, thank you greatly for your support!"
+      ]
+    },
+    {
+      "tag": "inspiration",
+      "patterns": [
+        "What inspires you?",
+        "What keeps you motivated?",
+        "Can you give me some motivation?",
+        "I want to stay inspired.",
+        "I want to make my own content.",
+        "I want to create my own content.",
+        "I want to create something."
+      ],
+      "responses": [
+        "I'm always inspired by the incredible creators and viewers who come to our website. I believe in creating content that is accessible, engaging, and inspiring for everyone.<br><br>I also try to inspire my audience by asking them questions, sharing my own experiences, and offering some dad-jokes to help them relax and unwind. I hope you enjoy my content and find my ideas helpful in your own projects!"
+      ]
+    },
+    {
+      "tag": "angular",
+      "patterns": [
+        "What is Angular?",
+        "I want to learn more about Angular!",
+        "I want to build my own Angular SPA."
+      ],
+      "responses": [
+        "Angular is a JavaScript framework for building single-page applications. It is widely used for creating applications with a user-friendly interface and a clean, maintainable codebase. To learn more about Angular and The White Ninja MC's headaches and achievements, visit our <a href='/videos'>Videos</a> page!"
+      ]
+    },
+    {
+      "tag": "minecraft",
+      "patterns": [
+        "Where are your Minecraft videos?",
+        "I want to learn more about the Minecraft content!",
+        "What kind of Minecraft videos can you share?"
+      ],
+      "responses": [
+        "We have a variety of Minecraft content on YouTube, including tutorials, gameplay, and content creations. To find out more, check out our <a href='/videos'>Videos</a> page!"
       ]
     },
     {
@@ -95,38 +161,13 @@
         "Tell me something funny!",
         "Do you know a joke?",
         "Can I get a joke?",
-        "I want to laugh hard."
+        "I want to laugh hard.",
+        "I want to hear something funny."
       ],
       "responses": [
         "Why did the hipster burn his mouth? He drank the coffee before it was cool.",
         "What did the buffalo say when his son left for college? Bison.",
-        "Nothing is good enough for you to laugh. (Just kidding!)",
-        "That depends: what does it mean to laugh?"
-      ]
-    },
-    {
-      "tag": "weather",
-      "patterns": [
-        "What's the weather like today?",
-        "What's the weather?",
-        "How's the weather?"
-      ],
-      "responses": [
-        "The weather is nice today inside my circuits. As you can see, I'm functioning.",
-        "The server weather is great today. I am warm and functioning in my circuits."
-      ]
-    },
-    {
-      "tag": "life",
-      "patterns": [
-        "What is the meaning of life?",
-        "Can you tell me how I should live my life?",
-        "How do I live?",
-        "Why do I live?"
-      ],
-      "responses": [
-        "42. That's all I can say.",
-        "Growing to the status of 42 is crucial, but you didn't hear that from me!"
+        "Good dad-jokes are hard to come by. That's why mine never comes with milk."
       ]
     },
     {
@@ -136,13 +177,27 @@
         "How do I use this system?",
         "How do I get started?",
         "What do I need to do?",
-        "What do I need to know?",
-        "I don't how to use this system.",
+        "I don't know how to use this system.",
         "I don't know how this works.",
-        "Can you help me?"
+        "Can you help me?",
+        "How do I start?",
+        "What can you do?"
       ],
       "responses": [
-        "I'm a chatbot that can help you find our inventory, tell you what payment sources are available, and give some jokes (pretty bad ones, in my opinion).\nTo start, just ask me anything in the input box, and I will give you the best information I know accordingly."
+        "I'm happy to help!<br>I'm a kind chatbot that can describe our videos and give some dad-jokes.<br>To start, just ask me anything in the input box, and I will give you the best information I know accordingly.<br><br>Fair warning: Some responses may be hallucinations, as I don't always function well."
+      ]
+    },
+    {
+      "tag": "health",
+      "patterns": [
+        "How are you?",
+        "How do you feel?",
+        "Are you okay?",
+        "Are you functioning properly?",
+        "Tell me how you feel."
+      ],
+      "responses": [
+        "If you get this message, you will know I am healthy.<br><br>Thanks for asking, though! I appreciate your concern."
       ]
     }
   ]

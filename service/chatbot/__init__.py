@@ -7,7 +7,7 @@ chatbot_bp = Blueprint('chatbot_bp', __name__)
 
 @chatbot_bp.get('/')
 def chatbot_index():
-    """Returns the initial chatbot resonse"""
+    """Returns the initial chatbot response"""
     return jsonify({
         "status": 200,
         "answer": "Welcome to the AI-Flask Chatbot!"

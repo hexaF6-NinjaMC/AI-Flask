@@ -16,7 +16,7 @@
         {% for field in form %}
         {% if field.type != "SubmitField" and field.type != "CSRFTokenField" %}
         <div class="row mb-2 justify-content-center was-validated">
-          {{ field.label(class="col-sm-2 col-form-label") }}
+          {{ field.label(class="col-sm-2 col-form-label text-bg-dark") }}
           <div class="col-sm-7 justify-content-center">
             {{ field(class="form-control mb-2 has-validation") }}
             <div class="invalid-feedback">

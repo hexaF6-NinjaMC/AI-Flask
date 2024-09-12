@@ -12,7 +12,7 @@
 
   Use the URL
   ```
-  https://ai-flask-m190.onrender.com/chatbot/predict
+  https://ai-flask-production.up.railway.app/chatbot/predict
   ```
   in a Fetch() API POST request in your Javascript:
   ```javascript
@@ -24,7 +24,7 @@
    * XSS and other malignant methods are bad!
    */
 
-  fetch("https://ai-flask-m190.onrender.com/chatbot/predict", {
+  fetch("https://ai-flask-production.up.railway.app/chatbot/predict", {
     method: "POST",
     body: JSON.stringify({ message: text }),
     mode: "cors",

@@ -31,7 +31,7 @@ def get_response(msg: str) -> str:
     if not pathlib.Path(file).is_file():
         print("No data.pth found. Training model...")
         return "\"data.pth\" does not exist."
-    data = torch.load(file)
+    data = torch.load(file, weights_only=True)
 
     input_size = data["input_size"]
     hidden_size = data["hidden_size"]
