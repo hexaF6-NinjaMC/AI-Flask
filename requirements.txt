@@ -26,7 +26,7 @@ psycopg2-binary==2.9.10
 python-dotenv==1.1.0
 regex==2024.11.6
 SQLAlchemy==2.0.40
-sympy=>1.13.1
+sympy==1.13.1
 tbb==2022.1.0
 torch==2.6.0
 torchvision==0.21.0
